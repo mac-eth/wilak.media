@@ -1,6 +1,5 @@
-import { PortableText } from '@portabletext/react'
 import Link from 'next/link'
-
+import { PortableText } from '@portabletext/react'
 import styles from './BlogHeader.module.css'
 
 export default function BlogHeader({
