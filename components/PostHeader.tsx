@@ -1,6 +1,6 @@
 import Avatar from 'components/AuthorAvatar'
 import CoverImage from 'components/CoverImage'
-import Date from 'components/PostDate'
+import Date from 'components/utils/Date'
 import type { Post } from 'lib/sanity.queries'
 import PostTitle from 'components/PostTitle'
 

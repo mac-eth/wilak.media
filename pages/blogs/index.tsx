@@ -1,12 +1,9 @@
 import { Post, Settings } from 'lib/sanity.queries'
 import { getAllPosts, getSettings } from 'lib/sanity.client'
 
+import BlogList from 'components/blog/BlogList'
 import { GetStaticProps } from 'next'
 import IndexPage from 'components/IndexPage'
-import { PreviewSuspense } from '@sanity/preview-kit'
-import { lazy } from 'react'
-
-const PreviewIndexPage = lazy(() => import('components/PreviewIndexPage'))
 
 interface PageProps {
   posts: Post[]
@@ -23,23 +20,13 @@ interface PreviewData {
   token?: string
 }
 
-export default function Page(props: PageProps) {
-  const { posts, settings, preview, token } = props
+const Blogs = (props: PageProps) => {
+  const { posts } = props
 
-  if (preview) {
-    return (
-      <PreviewSuspense
-        fallback={
-          <IndexPage loading preview posts={posts} settings={settings} />
-        }
-      >
-        <PreviewIndexPage token={token} />
-      </PreviewSuspense>
-    )
-  }
-
-  return <IndexPage posts={posts} settings={settings} />
+  return <BlogList posts={posts} />
 }
+
+export default Blogs
 
 export const getStaticProps: GetStaticProps<
   PageProps,

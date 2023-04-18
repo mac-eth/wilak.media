@@ -1,20 +1,9 @@
-import { BookIcon } from '@sanity/icons'
-import { format, parseISO } from 'date-fns'
 import { defineField, defineType } from 'sanity'
+import { format, parseISO } from 'date-fns'
 
+import { BookIcon } from '@sanity/icons'
+import author from './author'
 import authorType from './author'
-
-/**
- * This file is the schema definition for a post.
- *
- * Here you'll be able to edit the different fields that appear when you 
- * create or edit a post in the studio.
- * 
- * Here you can see the different schema types that are available:
-
-  https://www.sanity.io/docs/schema-types
-
- */
 
 export default defineType({
   name: 'post',
@@ -38,6 +27,11 @@ export default defineType({
         isUnique: (value, context) => context.defaultIsUnique(value, context),
       },
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'string',
     }),
     defineField({
       name: 'content',
