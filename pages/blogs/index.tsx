@@ -3,7 +3,6 @@ import { getAllPosts, getSettings } from 'lib/sanity.client'
 
 import BlogList from 'components/blog/BlogList'
 import { GetStaticProps } from 'next'
-import IndexPage from 'components/IndexPage'
 
 interface PageProps {
   posts: Post[]
