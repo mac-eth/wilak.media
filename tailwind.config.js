@@ -2,7 +2,6 @@
 module.exports = {
   content: [
     './components/**/*.{js,ts,jsx,tsx}',
-    './intro-template/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
     './plugins/**/*.{js,ts,jsx,tsx}',
   ],
@@ -15,7 +14,7 @@ module.exports = {
         success: '#0070f3',
         cyan: '#79FFE1',
         'blue-500': '#2276FC',
-        'yellow-100': '#fef7da',
+        'green-100': '#fef7da',
       },
       spacing: {
         28: '7rem',

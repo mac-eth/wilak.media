@@ -46,7 +46,7 @@ export interface Author {
   role?: string
 }
 
-export interface Post {
+export interface Blog {
   _id: string
   title?: string
   category?: string

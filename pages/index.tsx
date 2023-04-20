@@ -1,7 +1,10 @@
-const Home = () => {
+import Hero from 'components/home/hero/Hero'
+import React from 'react'
+
+const Home: React.FC = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <Hero />
     </div>
   )
 }

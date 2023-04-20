@@ -1,11 +1,11 @@
-import { Post, Settings } from 'lib/sanity.queries'
-import { getAllPosts, getSettings } from 'lib/sanity.client'
+import { Blog, Settings } from 'lib/sanity.queries'
+import { getAllBlogs, getSettings } from 'lib/sanity.client'
 
 import BlogList from 'components/blog/BlogList'
 import { GetStaticProps } from 'next'
 
 interface PageProps {
-  posts: Post[]
+  blogs: Blog[]
   settings: Settings
   preview: boolean
   token: string | null
@@ -20,9 +20,9 @@ interface PreviewData {
 }
 
 const Blogs = (props: PageProps) => {
-  const { posts } = props
+  const { blogs } = props
 
-  return <BlogList posts={posts} />
+  return <BlogList blogs={blogs} />
 }
 
 export default Blogs
@@ -34,14 +34,14 @@ export const getStaticProps: GetStaticProps<
 > = async (ctx) => {
   const { preview = false, previewData = {} } = ctx
 
-  const [settings, posts = []] = await Promise.all([
+  const [settings, blogs = []] = await Promise.all([
     getSettings(),
-    getAllPosts(),
+    getAllBlogs(),
   ])
 
   return {
     props: {
-      posts,
+      blogs,
       settings,
       preview,
       token: previewData.token ?? null,

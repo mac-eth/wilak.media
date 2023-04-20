@@ -1,7 +1,7 @@
+import type { Blog } from 'lib/sanity.queries'
 import BlogListItem from 'components/blog/BlogListItem'
-import type { Post } from 'lib/sanity.queries'
 
-const BlogList = ({ posts }: { posts: Post[] }) => {
+const BlogList = ({ blogs }: { blogs: Blog[] }) => {
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -13,8 +13,8 @@ const BlogList = ({ posts }: { posts: Post[] }) => {
             Learn how to grow your business with our expert advice.
           </p>
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
-            {posts.map((post) => (
-              <BlogListItem key={post.slug} post={post} />
+            {blogs.map((blog) => (
+              <BlogListItem key={blog.slug} blog={blog} />
             ))}
           </div>
         </div>
