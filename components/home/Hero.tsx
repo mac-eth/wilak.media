@@ -1,22 +1,8 @@
-import { Bars3Icon } from '@heroicons/react/24/outline'
-import DesktopNavigation from './DesktopNavigation'
 import Image from 'next/image'
 import LandingImage from 'assets/landingimage.avif'
-import Logo from 'assets/mark.svg'
-import MobileNavigation from 'components/home/hero/MobileNavigation'
-import { useState } from 'react'
-
-const navigation = [
-  { name: 'Services', href: '#' },
-  { name: 'Case Studies', href: '#' },
-  { name: 'Blogs', href: '#' },
-  { name: 'Training', href: '#' },
-  { name: 'Book a Call', href: '#' },
-]
+import Navbar from './navbar'
 
 const Landing = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
   return (
     <div className=" bg-stone-900">
       <svg
@@ -42,36 +28,7 @@ const Landing = () => {
           fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
         />
       </svg>
-      <header className="absolute inset-x-0 top-0 z-50">
-        <div className="mx-auto max-w-7xl">
-          <div className="px-6 pt-6 lg:max-w-2xl lg:pl-8 lg:pr-0">
-            <nav
-              className="flex items-center justify-between lg:justify-start"
-              aria-label="Global"
-            >
-              <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
-                <Image alt="Your Company" className="h-8 w-auto" src={Logo} />
-              </a>
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-stone-200 lg:hidden"
-                onClick={() => setMobileMenuOpen(true)}
-              >
-                <span className="sr-only">Open main menu</span>
-                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-              </button>
-              <DesktopNavigation navigation={navigation} />
-            </nav>
-          </div>
-        </div>
-        <MobileNavigation
-          navigation={navigation}
-          Logo={Logo}
-          mobileMenuOpen={mobileMenuOpen}
-          setMobileMenuOpen={setMobileMenuOpen}
-        />
-      </header>
+      <Navbar />
 
       <div className="relative h-screen">
         <div className="mx-auto max-w-7xl">
@@ -92,7 +49,7 @@ const Landing = () => {
                     Anim aute id magna aliqua ad ad non deserunt sunt.{' '}
                     <a
                       href="#"
-                      className="whitespace-nowrap font-semibold text-green-600"
+                      className="whitespace-nowrap font-semibold text-red-600"
                     >
                       <span className="absolute inset-0" aria-hidden="true" />
                       Read more <span aria-hidden="true">&rarr;</span>
@@ -110,7 +67,7 @@ const Landing = () => {
                 <div className="mt-10 flex items-center gap-x-6">
                   <a
                     href="#"
-                    className="rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+                    className="rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                   >
                     Get started
                   </a>
